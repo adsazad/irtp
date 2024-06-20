@@ -12,5 +12,5 @@ set(CMAKE_PREFIX_PATH "/Users/arashdeep/vcpkg/installed/x64-osx" CACHE STRING ""
 find_package(nlohmann_json CONFIG REQUIRED)
 
 # Add the executable
-add_executable(server src/server.cpp src/libs/Config.cpp)
+add_executable(server src/server.cpp src/libs/Config.cpp src/libs/Socket.cpp)
 target_link_libraries(server PRIVATE nlohmann_json::nlohmann_json)
