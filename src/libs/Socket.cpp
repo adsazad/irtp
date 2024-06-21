@@ -17,6 +17,7 @@ void Socket::InitializeSocket(Config& config){
 }
 
 void Socket::connect(){
+    try{
     std::cout << "Connecting to Socket" << std::endl;
     this->serverSocket = socket(AF_INET, SOCK_STREAM, 0);
     std::cout << "Server Socket: " << this->serverSocket << std::endl;
@@ -34,6 +35,9 @@ void Socket::connect(){
 
     this->clientSocket = accept(this->serverSocket, (struct sockaddr*)&serverAddress, (socklen_t*)&serverAddress);
     std::cout << "Client Socket: " << this->clientSocket << std::endl;
+    }catch(const std::exception& e){
+        std::cerr << e.what() << '\n';
+    }
 
 }
 
