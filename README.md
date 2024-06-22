@@ -16,6 +16,9 @@ Go to `build` folder.
 ./server
 ```
 
+### CLI
+The cli tools are available at `./cli-tools`
+
 ### Configuration
 Configuration file is `config.json`.
 ```json
