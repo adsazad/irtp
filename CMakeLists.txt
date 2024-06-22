@@ -16,6 +16,7 @@ find_package(mongocxx CONFIG REQUIRED)
 
 # Add the executable
 add_executable(server src/server.cpp src/libs/Config.cpp src/libs/Socket.cpp src/Utils/DatabaseLoader.cpp)
+add_executable(cli-tools src/cli-tools/cli-tools.cpp)
 target_link_libraries(server PRIVATE nlohmann_json::nlohmann_json)
 target_link_libraries(server PRIVATE $<IF:$<TARGET_EXISTS:mongo::bsoncxx_static>,mongo::bsoncxx_static,mongo::bsoncxx_shared>)
 target_link_libraries(server PRIVATE $<IF:$<TARGET_EXISTS:mongo::mongocxx_static>,mongo::mongocxx_static,mongo::mongocxx_shared>)
