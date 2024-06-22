@@ -8,6 +8,9 @@ class Config{
     public:
         std::string host;
         int port;
+        std::string mongoHost;
+        int mongoPort;
+        std::string mongoDatabase;
 
         Config();
 

@@ -9,7 +9,7 @@ int main() {
     Config config;
     config.load("../config.json");
     DatabaseLoader db;
-    // db.load("database.db");
+    db.load(config);
     Socket socket;
     socket.InitializeSocket(config);
 

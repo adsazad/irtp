@@ -22,4 +22,8 @@ void Config::load(const std::string& path) {
 void Config::parseJson(const nlohmann::json& j) {
     host = j.at("host").get<std::string>();
     port = j.at("port").get<int>();
+    mongoHost = j.at("mongo").at("host").get<std::string>();
+    mongoPort = j.at("mongo").at("port").get<int>();
+    mongoDatabase = j.at("mongo").at("database").get<std::string>();
+    
 }

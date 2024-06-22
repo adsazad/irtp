@@ -3,11 +3,13 @@
 
 #include <string>
 #include <iostream>
+#include "../libs/Config.h"
 
 class DatabaseLoader {
     public:
+    std::string connectionPath;
     DatabaseLoader();
-    void load(const std::string& path);
+    void load(Config& config);
     
 };
 
