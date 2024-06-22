@@ -15,3 +15,12 @@ Go to `build` folder.
 ```
 ./server
 ```
+
+### Configuration
+Configuration file is `config.json`.
+```
+{
+    "host":"localhost",
+    "port": 8800
+}
+```
