@@ -9,13 +9,18 @@
 #include <mongocxx/uri.hpp>
 
 
+
 class DatabaseLoader {
     public:
     std::string connectionPath;
     mongocxx::database db;
     DatabaseLoader();
     void load(Config& config);
-    
+
+    void createRoom(std::string roomName);
+
+    private:
+    mongocxx::client client;
 };
 
 #endif
