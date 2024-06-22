@@ -8,8 +8,10 @@
 int main() {
     Config config;
     config.load("../config.json");
-    DatabaseLoader db;
-    db.load(config);
+    DatabaseLoader dbloader;
+    dbloader.load(config);
+    // create mongodb collection
+    // dbloader.db.createCollection("users");
     Socket socket;
     socket.InitializeSocket(config);
 

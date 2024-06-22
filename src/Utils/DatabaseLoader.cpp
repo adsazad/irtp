@@ -28,7 +28,25 @@ void DatabaseLoader::load(Config& config){
     // Create the client
     mongocxx::client client{uri, client_options};
     std::cout << "Connected to database" << std::endl;
-    mongocxx::database db = client[config.mongoDatabase];
+    db = client[config.mongoDatabase];
+    // check if database exists if not create it
+    auto collections = db.list_collections();
+    bool db_exists = false;
+    for (auto&& coll : collections) {
+        db_exists = true;
+        break;
+    }
+    
+    // If the database doesn't exist, create it by adding a dummy collection
+    if (!db_exists) {
+        std::cout << "Database does not exist. Creating the database by adding a dummy collection." << std::endl;
+        db["room"].insert_one({});
+        // db["dummy_collection"].drop();
+        // std::cout << "Dummy collection added and removed to create the database." << std::endl;
+    } else {
+        std::cout << "Database already exists." << std::endl;
+    }
+
     std::cout << "Database loaded" << std::endl;
 
 }
